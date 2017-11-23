@@ -1,0 +1,10 @@
+version: v1
+bestshow:
+  name: futurama
+  episode: 111
+
+bestartist:
+  name: dralban
+  songs:
+    - it is my life
+    - hello afrika

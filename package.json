@@ -1,0 +1,49 @@
+{
+  "name": "good-config",
+  "version": "1.0.0",
+  "description": "Centralized configuration for node apps",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint lib/** index.js",
+    "test": "mocha --require test/bootstrap.js --recursive test",
+    "coverage": "istanbul --include-all-sources cover _mocha -- --require test/bootstrap.js --recursive test -R nyan",
+    "check": "mocha -R min --require test/bootstrap.js --recursive test; npm run lint; ncu",
+    "version": "echo $npm_package_version",
+    "release": "npm pack && curl -F package=@$npm_package_name-$npm_package_version.tgz $npm_config_registry"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dijam/good-config.git"
+  },
+  "author": "Majid Garmaroudi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dijam/good-config/issues"
+  },
+  "homepage": "https://github.com/dijam/good-config#readme",
+  "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-sdk": "2.22.0",
+    "merge-config": "2.0.0",
+    "yamljs": "0.2.8"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "chai-subset": "1.5.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "^2.1.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "npm-check-updates": "2.10.3",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2"
+  }
+}
