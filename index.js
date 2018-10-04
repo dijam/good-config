@@ -1,5 +1,6 @@
-const storage = require('./lib/storage');
-const MergeConfig = require('merge-config');
+const storage = require("./lib/storage");
+const MergeConfig = require("merge-config");
+const envify = require("./lib/envify");
 
 /**
  * Config class
@@ -8,7 +9,6 @@ const MergeConfig = require('merge-config');
  * and selected format for opening/parsing configs
  */
 class Config {
-
   /**
    * constructor method
    *
@@ -20,10 +20,10 @@ class Config {
    */
   constructor(options = {}) {
     this.options = options;
-    this.options.provider = options.provider || 'FileSystem';
-    this.options.format = options.format || 'json';
-    this.options.env = options.env || 'default';
-    this.options.region = options.region || 'default';
+    this.options.provider = options.provider || "FileSystem";
+    this.options.format = options.format || "json";
+    this.options.env = options.env || "default";
+    this.options.region = options.region || "default";
     this.conf = {};
   }
 
@@ -34,7 +34,7 @@ class Config {
     mergeConfig.merge({});
 
     // Loop over the given configs and add them based on array's hierarchy
-    configs.forEach((config) => {
+    configs.forEach(config => {
       mergeConfig.merge(config);
     });
 
@@ -53,9 +53,10 @@ class Config {
   load() {
     this.options.files = this.getPriorities();
 
-    return storage.load(this.options)
+    return storage
+      .load(this.options)
       .then(Config.createMergeConfig)
-      .then((mergeConfig) => {
+      .then(mergeConfig => {
         this.conf = mergeConfig;
         return this;
       });
@@ -70,7 +71,6 @@ class Config {
     return this;
   }
 
-
   /**
    * Returns array of prioritised config files based on env and region
    *
@@ -80,13 +80,15 @@ class Config {
     const files = [`default.${this.options.format}`];
 
     // Load default node env first
-    if (this.options.env !== 'default') {
+    if (this.options.env !== "default") {
       files.push(`${this.options.env}/default.${this.options.format}`);
     }
 
     // Load region after default env, in order to keep the hierarchy correctly
-    if (this.options.env !== 'default' && this.options.region !== 'default') {
-      files.push(`${this.options.env}/${this.options.region}.${this.options.format}`);
+    if (this.options.env !== "default" && this.options.region !== "default") {
+      files.push(
+        `${this.options.env}/${this.options.region}.${this.options.format}`
+      );
     }
 
     return files;
@@ -98,7 +100,7 @@ class Config {
    * @return {String|Number|Boolean}
    */
   get(key) {
-    return this.conf.get(key);
+    return envify.envify(this.conf.get(key));
   }
 
   /**
@@ -107,7 +109,7 @@ class Config {
    * @return {Object}
    */
   getAll() {
-    return this.conf.get();
+    return envify.envify(this.conf.get());
   }
 }
 

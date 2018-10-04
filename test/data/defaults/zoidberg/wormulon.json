@@ -1,6 +1,9 @@
 {
   "bestshow": {
     "name": "Fry and the Slurm Factory",
-    "episode": 13
+    "episode": 13,
+    "newCharacter": {
+      "name": "Zapp Brannigan"
+    }
   }
 }
