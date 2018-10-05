@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "globals": {
+    "expect": true,
+    "sinon": true
+  },
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}

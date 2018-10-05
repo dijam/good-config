@@ -1,10 +1,12 @@
 const Config = require("../index");
+
 const configbasePath = "/data/";
 
 describe("config", () => {
   describe("#constructor", () => {
     afterEach(() => {
-      delete process.env.version;
+      delete process.env.VERSION;
+      delete process.env.BESTSHOW_NEWCHARACTER_NAME;
     });
 
     it("should set the default values", () => {
@@ -49,7 +51,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           expect(config.get("bestshow").episode).to.equal(111);
           done();
@@ -79,7 +81,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -89,13 +91,14 @@ describe("config", () => {
     });
 
     it("should set the default config and overwrite with env specified value", done => {
-      process.env.version = "v3";
+      process.env.VERSION = "v3";
 
       const config = new Config({
         path: `${__dirname}${configbasePath}defaults`,
         provider: "FileSystem",
         env: "zoidberg"
       });
+
       const results = {
         version: "v3",
         bestshow: {
@@ -110,7 +113,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -144,7 +147,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -154,7 +157,7 @@ describe("config", () => {
     });
 
     it("should set the default config and overwrite with env and region specific values and env variable overwrite", done => {
-      process.env.version = "v3";
+      process.env.VERSION = "v3";
 
       const config = new Config({
         path: `${__dirname}${configbasePath}defaults`,
@@ -180,7 +183,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -190,7 +193,7 @@ describe("config", () => {
     });
 
     it("should set the default config and overwrite with env and region specific values and env variable overwrite and use yml", done => {
-      process.env.version = "v3";
+      process.env.VERSION = "v3";
 
       const config = new Config({
         path: `${__dirname}${configbasePath}defaults`,
@@ -214,7 +217,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -250,7 +253,7 @@ describe("config", () => {
 
       config
         .load()
-        .then(configObject => {
+        .then(() => {
           expect(config.getAll()).to.containSubset(results);
           done();
         })
@@ -265,26 +268,11 @@ describe("config", () => {
         provider: "FileSystem"
       });
 
-      const results = {
-        version: "v1",
-        bestshow: {
-          name: "futurama",
-          episode: 111,
-          newCharacter: {
-            name: "Zapp Brannigan"
-          }
-        },
-        bestartist: {
-          name: "dralban",
-          songs: ["it is my life", "hello africa"]
-        }
-      };
-
       config.load().should.be.rejected.and.notify(done);
     });
 
     it("should read config synchronously and set the default config and overwrite with env and region specific values and env variable overwrite and use yml", done => {
-      process.env.version = "v3";
+      process.env.VERSION = "v3";
 
       const config = new Config({
         path: `${__dirname}${configbasePath}defaults`,

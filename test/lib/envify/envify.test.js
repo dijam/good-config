@@ -1,6 +1,5 @@
 /* global before, describe, it, beforeEach, afterEach  */
 
-const { assert, expect } = require("chai");
 const { envify, typeify, upperUnderscore } = require("../../../lib/envify");
 
 describe("Envify tests", () => {

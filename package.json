@@ -23,28 +23,28 @@
   "homepage": "https://github.com/dijam/good-config#readme",
   "dependencies": {
     "aws": "0.0.3-2",
-    "aws-sdk": "2.22.0",
+    "aws-sdk": "2.327.0",
     "merge-config": "2.0.0",
-    "yamljs": "0.2.8"
+    "flat": "4.1.0",
+    "yamljs": "0.3.0"
   },
   "engines": {
     "node": ">=6.9.0"
   },
   "devDependencies": {
-    "chai": "3.5.0",
-    "chai-as-promised": "6.0.0",
-    "chai-subset": "1.5.0",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "chai-subset": "1.6.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
+    "eslint-config-prettier": "^3.1.0",
     "istanbul": "0.4.5",
-    "mocha": "3.2.0",
-    "flat": "4.1.0",
-    "npm-check-updates": "2.10.3",
-    "rewire": "^2.5.2",
-    "sinon": "^1.17.7",
-    "sinon-as-promised": "^4.0.2"
+    "mocha": "5.2.0",
+    "npm-check-updates": "2.14.2",
+    "rewire": "^4.0.1",
+    "sinon": "^6.3.5"
   }
 }

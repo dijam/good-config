@@ -42,7 +42,8 @@ class Config {
     mergeConfig.argv();
 
     // Add an environment variables override
-    mergeConfig.env();
+    // mergeConfig.env();
+    mergeConfig.merge(envify.envify(mergeConfig.get()));
 
     return mergeConfig;
   }
@@ -100,7 +101,7 @@ class Config {
    * @return {String|Number|Boolean}
    */
   get(key) {
-    return envify.envify(this.conf.get(key));
+    return this.conf.get(key);
   }
 
   /**
@@ -109,7 +110,7 @@ class Config {
    * @return {Object}
    */
   getAll() {
-    return envify.envify(this.conf.get());
+    return this.conf.get();
   }
 }
 

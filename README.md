@@ -7,6 +7,7 @@ Easy to use centralized config with the goal of having config simple and extenda
 - Supports for both `yaml` and `json`
 - Possibility to add your own provider
 - Hierarchical support thanks to [merge-config](https://github.com/telefonica/node-merge-config)
+- Envify support: You can overwrite any config key via env variables and envify convert `parent.key` to `PARENT_KEY`
 
 Currently it has these providers:
 
