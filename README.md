@@ -2,6 +2,23 @@
 
 Easy to use centralized config with the goal of having config simple and extendable.
 
+## Version 1.1.0
+
+Added envify functionality. It means you can now just define your config the way you want (json/yml). In run time, if you needed to overwrite a key, just follow Uppercase+Underscore and you would be able to overwrite it.
+For example you have a config like this:
+
+```
+{
+  key1: "value1",
+  key2: {
+    subKey: 1,
+    anotherKey: "changeme"
+  }
+}
+```
+
+Say you want to change `anotherKey` value via environmental variables. You can just set `KEY2_ANOTHERKEY` to the value you want and good-config will replace it with the correct value.
+
 ## Main features
 
 - Supports for both `yaml` and `json`
