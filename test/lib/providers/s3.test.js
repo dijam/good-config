@@ -67,7 +67,7 @@ describe("S3", () => {
       s3.loadConfig().should.be.rejected.and.notify(done);
     });
 
-    it("should throw error if trying to load s3 synchronously", done => {
+    it("should throw error if trying to load s3 synchronously", () => {
       const options = {
         awsBucket: "pretty-bucket",
         awsAccessKeyId: "awsAccessKeyId",
@@ -77,9 +77,7 @@ describe("S3", () => {
 
       const s3 = new S3(options);
 
-      s3.loadConfigSync()
-        .then(() => done(new Error("Did not expect to get here")))
-        .catch(() => done());
+      expect(s3.loadConfigSync).to.throw("No provider has been selected or provider does not implement loadConfigSync().");
     });
   });
 });
