@@ -152,6 +152,58 @@ describe("Envify tests", () => {
       delete process.env.ENABLED;
     });
 
+    it("should override if value is empty string", () => {
+      process.env.SKY = "blueish";
+      const input = {
+        sky: ""
+      };
+
+      const output = {
+        sky: "blueish"
+      };
+      expect(envify(input)).be.eql(output);
+      delete process.env.SKY;
+    });
+
+    it("should override if value is 0", () => {
+      process.env.AGE = "10";
+      const input = {
+        age: 0
+      };
+
+      const output = {
+        age: 10
+      };
+      expect(envify(input)).be.eql(output);
+      delete process.env.AGE;
+    });
+
+    it("should override if value is false", () => {
+      process.env.HUMAN = "true";
+      const input = {
+        human: false
+      };
+
+      const output = {
+        human: true
+      };
+      expect(envify(input)).be.eql(output);
+      delete process.env.HUMAN;
+    });
+
+    it("should override with string value if value is null", () => {
+      process.env.AGE = "10";
+      const input = {
+        age: null
+      };
+
+      const output = {
+        age: "10"
+      };
+      expect(envify(input)).be.eql(output);
+      delete process.env.AGE;
+    });
+    
     it("should return empty if it received an empty object", () => {
       process.env.MOON_SIDE = "light";
       expect(envify({})).be.eql({});
