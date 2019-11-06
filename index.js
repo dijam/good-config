@@ -1,5 +1,5 @@
-const storage = require("./lib/storage");
 const MergeConfig = require("merge-config");
+const storage = require("./lib/storage");
 const envify = require("./lib/envify");
 
 /**

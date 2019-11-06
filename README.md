@@ -2,6 +2,12 @@
 
 Easy to use centralized config with the goal of having config simple and extendable.
 
+## Version 1.1.2
+Update dependencies (#5)
+
+## Version 1.1.1
+Fixed the bug (#2) which ignores empty values to be set bia environmental variables.
+
 ## Version 1.1.0
 
 Added envify functionality. It means you can now just define your config the way you want (json/yml). In run time, if you needed to overwrite a key, just follow Uppercase+Underscore and you would be able to overwrite it.
