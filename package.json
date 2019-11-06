@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint lib/** index.js",
     "test": "mocha --require test/bootstrap.js --recursive test",
-    "coverage": "istanbul --include-all-sources cover _mocha -- --require test/bootstrap.js --recursive test -R nyan",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "check": "mocha -R min --require test/bootstrap.js --recursive test; npm run lint; ncu",
     "version": "echo $npm_package_version",
     "release": "npm pack && curl -F package=@$npm_package_name-$npm_package_version.tgz $npm_config_registry"
@@ -23,9 +23,10 @@
   "homepage": "https://github.com/dijam/good-config#readme",
   "dependencies": {
     "aws": "0.0.3-2",
-    "aws-sdk": "2.327.0",
+    "aws-sdk": "2.564.0",
+    "flat": "5.0.0",
     "merge-config": "2.0.0",
-    "flat": "4.1.0",
+    "nyc": "^14.1.1",
     "yamljs": "0.3.0"
   },
   "engines": {
@@ -35,16 +36,16 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb": "13.0.0",
-    "eslint-plugin-import": "^2.1.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.6.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "eslint-config-prettier": "^3.1.0",
-    "istanbul": "0.4.5",
-    "mocha": "5.2.0",
-    "npm-check-updates": "2.14.2",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "mocha": "6.2.2",
+    "npm-check-updates": "3.2.0",
     "rewire": "^4.0.1",
-    "sinon": "^6.3.5"
+    "sinon": "^7.5.0"
   }
 }
