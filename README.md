@@ -2,6 +2,9 @@
 
 Easy to use centralized config with the goal of having config simple and extendable.
 
+## Version 1.2.0
+Update dependencies and remove S3 support
+
 ## Version 1.1.2
 Update dependencies (#5)
 
@@ -35,7 +38,6 @@ Say you want to change `anotherKey` value via environmental variables. You can j
 Currently it has these providers:
 
 - FileSystem
-- S3
 - Feel free to make PR for other providers
 
 ## Installation
@@ -67,12 +69,7 @@ const Config = require("good-config");
 
 const config = new Config({
   path: "media-service",
-  awsBucket: "-config",
   format: "json", // Optional
-  awsAccessKeyId: process.env.AwsAccessKeyId,
-  awsSecretAccessKey: process.env.AwsSecretAccessKey,
-  awsRegion: process.env.AwsRegion, // Optional
-  provider: "S3"
 });
 
 config
@@ -93,15 +90,10 @@ There is also the option of loading config from filesystem synchronously, by cal
 
 ## Available options
 
-- `path` : Path to the config file. For `S3` it is name of the project directory and for `FileSystem` , the path to where you store config files.
+- `path` : Path to the config file.
 - `format`: Format of config files - Default `json`
-- `provider`: Name of the provider class, [`FileSystem`, `S3`]
+- `provider`: Name of the provider class, [`FileSystem`]
 - `env`: Content of NODE_ENV, [`production`, `development`, ...]
-- `region`: Content of REGION Env variable, [`EUW`, `USE`, ...]
-- `awsBucket`: Name of the `S3` bucket
-- `awsAccessKeyId`: Name of the `S3` AWS accessKeyId
-- `awsSecretAccessKey`: Name of the `S3` AWS secretAccessKey
-- `awsRegion`: Name of the `S3` AWS region - Default `eu-west-1`
 
 ## License
 
