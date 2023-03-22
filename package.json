@@ -1,6 +1,6 @@
 {
   "name": "good-config",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Centralized configuration for node apps",
   "main": "index.js",
   "scripts": {
@@ -22,30 +22,28 @@
   },
   "homepage": "https://github.com/dijam/good-config#readme",
   "dependencies": {
-    "aws": "0.0.3-2",
-    "aws-sdk": "2.564.0",
-    "flat": "5.0.0",
-    "merge-config": "2.0.0",
-    "nyc": "^14.1.1",
-    "yamljs": "0.3.0"
+    "flat": "^5.0.2",
+    "merge-config": "^2.0.0",
+    "nyc": "^15.1.0",
+    "yamljs": "^0.3.0"
   },
   "engines": {
     "node": ">=6.9.0"
   },
   "devDependencies": {
-    "chai": "4.2.0",
-    "chai-as-promised": "7.1.1",
-    "chai-subset": "1.6.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "mocha": "6.2.2",
-    "npm-check-updates": "3.2.0",
-    "rewire": "^4.0.1",
-    "sinon": "^7.5.0"
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "chai-subset": "^1.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "mocha": "^10.2.0",
+    "npm-check-updates": "^16.7.13",
+    "rewire": "^6.0.0",
+    "sinon": "^15.0.2"
   }
 }
