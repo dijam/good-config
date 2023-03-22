@@ -1,6 +1,6 @@
 {
   "name": "good-config",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Centralized configuration for node apps",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/dijam/good-config#readme",
   "dependencies": {
     "flat": "^5.0.2",
-    "merge-config": "^2.0.0",
+    "merge-config-updated": "^1.0.0",
     "nyc": "^15.1.0",
     "yamljs": "^0.3.0"
   },
