@@ -2,8 +2,9 @@
 
 Easy to use centralized config with the goal of having config simple and extendable.
 
-## Version 1.2.0
-Update dependencies and remove S3 support
+## Version 2.0.0 - Breaking changes
+- Update dependencies
+- remove S3 support
 
 ## Version 1.1.2
 Update dependencies (#5)
